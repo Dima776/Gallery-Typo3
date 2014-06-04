@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-06-03T23:35:47Z" product-name="pgallery">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_pgallery_domain_model_personalgallery">
+				<source>Personal Gallery</source>
+			</trans-unit>
+			<trans-unit id="tx_pgallery_domain_model_personalgallery.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_pgallery_domain_model_personalgallery.link">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="tx_pgallery_domain_model_personalgallery.comment">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_pgallery_domain_model_personalgallery.var1">
+				<source>Var1</source>
+			</trans-unit>
+			<trans-unit id="tx_pgallery_domain_model_personalgallery.var2">
+				<source>Var2</source>
+			</trans-unit>
+			<trans-unit id="tx_pgallery_domain_model_personalgallery.var3">
+				<source>Var3</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

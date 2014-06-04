@@ -1,0 +1,42 @@
+<f:layout name="Default" />
+
+This template displays a NEW form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        New.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<link rel="stylesheet" href="{f:uri.resource(path:'CSS/pgallery.css')}" />
+
+<h1>Add photos</h1>
+
+<f:flashMessages />
+
+<f:render partial="FormErrors" arguments="{object:PersonalGallery}"/>
+<div id ="new">
+<div class="back">
+<f:link.action action="list">
+<f:image src="{f:uri.resource(path:'Icons/arrow-back-outline-64.png')}" width="40" height="40" alt="Back" />
+</f:link.action >
+</div>
+
+<f:form action="create" enctype="multipart/form-data"  name="newPersonalGallery" object="{newPersonalGallery}">
+
+<f:render partial="PersonalGallery/FormFields" />
+
+
+<f:render partial="PersonalGallery/UploadForm" /> 
+<br />       
+<br />       
+<f:form.submit class="button_new"  value="Add" />
+
+</f:form>
+
+</div>
+</f:section>

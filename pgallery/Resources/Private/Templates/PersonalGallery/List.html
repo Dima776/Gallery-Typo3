@@ -1,0 +1,76 @@
+<f:layout name="Default" />
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<link rel="stylesheet"  href="{f:uri.resource(path:'CSS/pgallery.css')}" />
+<f:flashMessages />
+<div class="title">PersonalGallery</div>
+
+
+<div id ="new_action" >
+<f:link.action action="new">
+<f:image src="{f:uri.resource(path:'Icons/image-add-64.png')}" width="40" height="40" alt="Add new photo" />
+</f:link.action>
+</div>
+	<br />
+	<br />
+
+	<!--
+		<table  class="tx_pgallery"  cellspacing="10" cellpadding="15"  align="center" width="100%" >
+	<tr>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.name" /></th>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.link" /></th>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.comment" /></th>
+	<!--	<th><f:translate key="tx_pgallery_domain_model_personalgallery.var1" /></th>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.var2" /></th>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.var3" /></th>
+	
+		<th> </th>
+		<th> </th>
+	</tr>
+	<tr>
+		</table>
+		-->	
+
+
+	<f:widget.paginate objects="{personalGalleries}" as="paginatedPersonalGalleries" configuration="{itemsPerPage: 20, insertBelow: 1}" >
+	
+		<f:for each="{paginatedPersonalGalleries}" as="personalGallery">
+					
+		<div class="example2">
+		<span class="name"><f:format.printf  arguments="{personalGallery : personalGallery}"> {personalGallery.name}</f:format.printf></span>
+		<f:image src="uploads/tx_pgallery/{personalGallery.link}" width="230" height="150" alt="" class="image" style="-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;"/>
+		<span class="comment">	<f:format.printf  arguments="{personalGallery : personalGallery}"> {personalGallery.comment}</f:format.printf></span>
+		</div>	
+			
+		<!--<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.name}</f:link.action></td>
+			<td><f:image src="uploads/tx_pgallery/{personalGallery.link}" width="200" height="150" alt="My Image" /></td>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.comment}</f:link.action></td>
+			
+			
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.var1}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.link}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.var2}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.var3}</f:link.action></td>
+	
+			<td><f:link.action action="edit" arguments="{personalGallery : personalGallery}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{personalGallery : personalGallery}">Delete</f:link.action></td>
+		-->	
+		
+		</f:for>
+		<br />
+		
+<div style="margin-left:41%;">
+	</f:widget.paginate>
+</div>
+
+</f:section>

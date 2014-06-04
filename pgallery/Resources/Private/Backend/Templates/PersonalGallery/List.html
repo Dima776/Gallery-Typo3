@@ -1,0 +1,56 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+<link rel="stylesheet"  href="{f:uri.resource(path:'CSS/pgallery.css')}" />
+<h1>Listing for PersonalGallery</h1>
+
+<f:flashMessages />
+
+<table  class="tx_pgallery_be" cellspacing="10" cellpadding="15"  align="center" >
+	<tr>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.name" /></th>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.link" /></th>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.comment" /></th>
+	<!--	<th><f:translate key="tx_pgallery_domain_model_personalgallery.var1" /></th>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.var2" /></th>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.var3" /></th>
+	-->	
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{personalGalleries}" as="personalGallery">
+		<tr>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.name}</f:link.action></td>
+			<td><f:image src="uploads/tx_pgallery/{personalGallery.link}" width="130" height="70" alt="" class="image" style="-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;"/></td>	
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.comment}</f:link.action></td>
+			
+	<!--	<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.link}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.var1}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.var2}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.var3}</f:link.action></td>
+			
+	-->		
+			<td><f:link.action action="edit" arguments="{personalGallery : personalGallery}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{personalGallery : personalGallery}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+<br />
+<br />
+<f:link.action action="new">New PersonalGallery</f:link.action>
+
+<br />
+<br />
+</f:section>
