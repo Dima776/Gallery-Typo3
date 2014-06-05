@@ -81,20 +81,22 @@ class PersonalGalleryController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	 */
 	public function createAction(\TYPO3\Pgallery\Domain\Model\PersonalGallery $newPersonalGallery) {
 	
-	
-	if(!empty($_FILES) AND isset($_FILES['tx_pgallery_pgallery'])){
+// если разкоментить то будет ошибка
+
+/*	if(!empty($_FILES) AND isset($_FILES['tx_pgallery_pgallery'])){
 			$basicFileFunctions = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance ( 't3lib_basicFileFunctions' );
 			if(!is_dir(\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName ( 'uploads/tx_pgallery/' ))){
 				\TYPO3\CMS\Core\Utility\GeneralUtility::mkdir_deep(\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName ( 'uploads/' ),'tx_pgallery');
 			}	
-			
+	*/		
 			// for multi-upload
-		//	echo var_dump($_FILES['file']['name']);die;
+//	echo var_dump($_FILES['file']['name']);die;
+			$basicFileFunctions = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance ( 't3lib_basicFileFunctions' );
 			foreach ( $_FILES['file']['name'] as $key => $value ){
 		
 			
 			$link=$value;
-		//	echo var_dump($value);die;
+//	echo var_dump($value);die;
 			$name=$newPersonalGallery->getName();
 			$comment=$newPersonalGallery->getComment();
 			$this->personalGalleryRepository->insertRecord($name, $link, $comment);
@@ -109,15 +111,21 @@ class PersonalGalleryController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 			}
 		
 		
-		}
+		//}
+		
+	
+	//тут не работает так как нужно  ввывести сообщение что нужно выбрать фото
 	
 	
-	
-	
-		//$this->personalGalleryRepository->add($newPersonalGallery);
+	  //$this->personalGalleryRepository->add($newPersonalGallery);
 		$this->flashMessageContainer->add('Your new PersonalGallery was created.');
 		$this->redirect('list');
-	}
+		}
+//		else{	$this->flashMessageContainer->add('','Choose photo. ',$severity = \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR,$storeInSession = TRUE);
+//		$this->redirect('new');
+//		}
+		
+//	}
 
 	/**
 	 * action edit
@@ -136,6 +144,22 @@ class PersonalGalleryController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
 	 * @return void
 	 */
 	public function updateAction(\TYPO3\Pgallery\Domain\Model\PersonalGallery $personalGallery) {
+		
+		$basicFileFunctions = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance ( 't3lib_basicFileFunctions' );
+			foreach ( $_FILES['file']['name'] as $key => $value ){
+		
+			
+			$link=$value;
+			
+			$fileName = $basicFileFunctions->getUniqueName ( $value, 
+			\TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName ( 'uploads/tx_pgallery/'));
+           
+			\TYPO3\CMS\Core\Utility\GeneralUtility::upload_copy_move (
+				$_FILES['file'][ 'tmp_name' ][$key ],
+				$fileName );
+		
+			}
+		$personalGallery->setLink($link);
 		$this->personalGalleryRepository->update($personalGallery);
 		$this->flashMessageContainer->add('Your PersonalGallery was updated.');
 		$this->redirect('list');

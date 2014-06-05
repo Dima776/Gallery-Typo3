@@ -13,8 +13,8 @@
 .tx-pgallery-main {
 background:rgb(219, 224, 228);
 text-align: center;
-height: 100%;
-/*height: auto;*/
+/*height: 100%;*/
+height: auto;
 
 }
 .title{
@@ -89,7 +89,7 @@ background:rgb(204, 200, 200);
 border: medium solid;
 width: 30%;
 margin: 0 auto;
-height: 100%;
+
 }
 #new h1,label{
 font-family: ComickBook_CAPS;
@@ -155,6 +155,7 @@ list-style-type: none; /* Убираем маркеры */
 /**************************  BE **********************************************************************/
 #typo3-docbody{
 background-color: #EDEDED;
+text-align: center;
 
 
 }
@@ -162,6 +163,7 @@ background-color: #EDEDED;
     background: #eeeeee;
     border-collapse: collapse;
     width: 100%;
+	font-family: ComickBook_CAPS;
 }
 
 .tx_pgallery_be tr:nth-child(even) td{
@@ -171,4 +173,61 @@ background-color: #EDEDED;
 }
 .tx_pgallery_be td, .tx_pgallery_be th {
     padding: 4px;
+	text-align: center;
+}
+
+#new_be{
+background:rgb(204, 200, 200);
+border: medium solid;
+width: 60%;
+margin: 0 auto;
+height: 100%;
+}
+#new_be h1,label{
+font-family: ComickBook_CAPS;
+}
+
+#new_be textarea{
+background: rgb(241, 231, 231);
+border: medium solid;
+border-radius: 10px;
+
+}
+
+#new_be input{
+background: rgb(241, 231, 231);
+border: medium solid;
+width:200px;
+border-radius: 10px;
+
+}
+ #new_be #upload{
+border: ridge;
+cursor: pointer; /* Изменение вида курсора при наведении*/
+margin-bottom: 15px;
+}
+#new_be  input.button_new {
+width:150px;
+border-radius: 0px;
+background: rgb(160, 143, 143);
+border: medium solid;
+font-family: ComickBook_CAPS;
+/*background: #2E8CE3;  Цвет фона */
+padding: 7px 30px; /* Поля вокруг текста */
+font-size: 13px; /* Размер шрифта */ 
+font-weight: bold; /* Насыщенность шрифта */
+color: rgb(36, 31, 31); /* Цвет шрифта */
+text-align: center; /* Надпись на кнопке по центру */
+/*border: solid 1px #73C8F0;  Параметры рамки кнопки */ 
+cursor: pointer; /* Изменение вида курсора при наведении*/
+margin-bottom: 15px;
+
+}
+#create_new_be{
+float:left;
+/*border: solid 1px #73C8F0;  Параметры рамки кнопки */ 
+cursor: pointer; /* Изменение вида курсора при наведении*/
+margin-bottom: 15px;
+
+
 }

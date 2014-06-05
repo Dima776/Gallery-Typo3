@@ -12,14 +12,29 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="content">
-<h1>Edit PersonalGallery</h1>
+<link rel="stylesheet" href="{f:uri.resource(path:'CSS/pgallery.css')}" />
+<div id ="new_be">
+<h1>Edit Photo</h1>
 
 <f:flashMessages />
 
 <f:render partial="FormErrors" />
 
-<f:form action="update" name="personalGallery" object="{personalGallery}" >
+<div class="back">
+<f:link.action action="list">
+<f:image src="{f:uri.resource(path:'Icons/arrow-back-outline-64.png')}" width="40" height="40" alt="Back" />
+</f:link.action >
+</div>
+
+<f:form action="update" enctype="multipart/form-data"  name="personalGallery" object="{personalGallery}">
 <f:render partial="PersonalGallery/FormFields" arguments="{personalGallery:personalGallery}" />
+<f:render partial="PersonalGallery/UploadForm" />
+
+<br />
+<br />
 	<f:form.submit value="Save" />
+<br />
+<br />
 </f:form>
+</div>
 </f:section>
