@@ -17,12 +17,27 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 
+
+<f:form action="new" name="newPersonalGallery" object="{newPersonalGallery}">
+<f:form.submit class="button_new"  value="Add New Photo" style="float:left;"/>
+</f:form>
+
+<f:form action="list" action="list" controller="Options">
+<f:form.submit class="button_new"  value=" Options " style="float:right;" />
+</f:form>
+
+
+
+</div>
+
+<br />
+<br />
 <table  class="tx_pgallery_be" cellspacing="10" cellpadding="15"  align="center" >
 	<tr>
 		<th><f:translate key="tx_pgallery_domain_model_personalgallery.name" /></th>
 		<th><f:translate key="tx_pgallery_domain_model_personalgallery.link" /></th>
-		<th><f:translate key="tx_pgallery_domain_model_personalgallery.comment" /></th>
-	<!--	<th><f:translate key="tx_pgallery_domain_model_personalgallery.var1" /></th>
+	<!--	<th><f:translate key="tx_pgallery_domain_model_personalgallery.comment" /></th>
+		<th><f:translate key="tx_pgallery_domain_model_personalgallery.var1" /></th>
 		<th><f:translate key="tx_pgallery_domain_model_personalgallery.var2" /></th>
 		<th><f:translate key="tx_pgallery_domain_model_personalgallery.var3" /></th>
 	-->	
@@ -30,26 +45,44 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<th> </th>
 	</tr>
 
-	<f:for each="{personalGalleries}" as="personalGallery">
+<f:be.widget.paginate objects="{personalGalleries}" as="paginatedPersonalGalleries" configuration="{itemsPerPage: 20, insertBelow: 1}" >
+	<f:for each="{paginatedPersonalGalleries}" as="personalGallery">
 		<tr>
 			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.name}</f:link.action></td>
 			<td><f:image src="uploads/tx_pgallery/{personalGallery.link}" width="130" height="70" alt="" class="image" style="-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;"/></td>	
-			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.comment}</f:link.action></td>
 			
-	<!--	<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.link}</f:link.action></td>
+			
+	<!--	
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.comment}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.link}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.var1}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.var2}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.var3}</f:link.action></td>
 			
-	-->		
-			<td><f:link.action action="edit" arguments="{personalGallery : personalGallery}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{personalGallery : personalGallery}">Delete</f:link.action></td>
+		
+	
+	<td><f:link.external uri="{f:uri.resource(path:'Icons/edit.png')}">
+	<f:image src="{f:uri.resource(path:'Icons/edit.png')}" width="20" height="20" alt="Edit" />
+	</f:link.external></td>
+	-->	
+			<td><f:link.action action="edit" arguments="{personalGallery : personalGallery}">
+			<f:image src="{f:uri.resource(path:'Icons/edit.png')}" width="20" height="20" alt="Edit" />
+			</f:link.action></td>
+			
+			<td><f:link.action action="delete" arguments="{personalGallery : personalGallery}"
+			additionalAttributes="{ onclick: ' if(confirm(\'Are you sure?\')){return true;} else {return false;};'}">
+			<f:image src="{f:uri.resource(path:'Icons/DeleteRed.png')}" width="20" height="20" alt="Delete" />
+			</f:link.action></td>
 		</tr>
 	</f:for>
 </table>
+<div style="text-align:center;">
+<br />
+</f:be.widget.paginate>
+</div>
 <br />
 <br />
-<f:link.action action="new">New PersonalGallery</f:link.action>
+
 
 <br />
 <br />

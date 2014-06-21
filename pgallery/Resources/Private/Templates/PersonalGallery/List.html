@@ -11,7 +11,17 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<link rel="stylesheet"  href="{f:uri.resource(path:'CSS/pgallery.css')}" />
+
+<link rel="stylesheet"  href="{f:uri.resource(path:'CSS/pgallery.css')}"  />
+<link rel="stylesheet"  href="{f:uri.resource(path:'CSS/Fancybox/jquery.fancybox.css')}"  media="screen" />
+
+<script type="text/javascript" src="{f:uri.resource(path:'Js/FancyBox/jquery-1.3.2.min.js')}"></script>
+<script type="text/javascript" src="{f:uri.resource(path:'Js/FancyBox/jquery.easing.1.3.js')}"></script>
+<script type="text/javascript" src="{f:uri.resource(path:'Js/FancyBox/jquery.fancybox-1.2.1.pack.js')}"></script>
+<!--If you need to off fancybox comment next file -->
+<script type="text/javascript" src="{f:uri.resource(path:'Js/FancyBox/main_options.js')}"></script>	
+
+	
 <f:flashMessages />
 <div class="title">PersonalGallery</div>
 
@@ -48,11 +58,15 @@ Otherwise your changes will be overwritten the next time you save the extension 
 					
 		<div class="example2">
 		<span class="name"><f:format.printf  arguments="{personalGallery : personalGallery}"> {personalGallery.name}</f:format.printf></span>
+		<a class="pgallery" rel="group" href= "uploads/tx_pgallery/{personalGallery.link}" title=" {personalGallery.comment}">
 		<f:image src="uploads/tx_pgallery/{personalGallery.link}" width="230" height="150" alt="" class="image" style="-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;"/>
+		</a>
+		</div>
+		<!--
 		<span class="comment">	<f:format.printf  arguments="{personalGallery : personalGallery}"> {personalGallery.comment}</f:format.printf></span>
 		</div>	
 			
-		<!--<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.name}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.name}</f:link.action></td>
 			<td><f:image src="uploads/tx_pgallery/{personalGallery.link}" width="200" height="150" alt="My Image" /></td>
 			<td><f:link.action action="show" arguments="{personalGallery : personalGallery}"> {personalGallery.comment}</f:link.action></td>
 			

@@ -17,8 +17,8 @@ Extension Name
 :Description: manuals covering TYPO3 extension "Personal Gallery"
 :Language: en
 :Author: Dima Doronenko
-:Creation: 2014-06-03
-:Generation: 23:35
+:Creation: 2014-06-05
+:Generation: 21:11
 :Licence: Open Content License available from `www.opencontent.org/opl.shtml <http://www.opencontent.org/opl.shtml>`_
 
 The content of this document is related to TYPO3, a GNU/GPL CMS/Framework available from `www.typo3.org

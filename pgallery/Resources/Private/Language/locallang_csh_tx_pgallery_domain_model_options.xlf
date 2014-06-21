@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-06-05T21:11:23Z" product-name="pgallery">
+		<header/>
+		<body>
+
+			<trans-unit id="height.description">
+				<source>height</source>
+			</trans-unit>
+			<trans-unit id="width.description">
+				<source>width</source>
+			</trans-unit>
+			<trans-unit id="count.description">
+				<source>count</source>
+			</trans-unit>
+			<trans-unit id="opvar1.description">
+				<source>opvar1</source>
+			</trans-unit>
+			<trans-unit id="opvar2.description">
+				<source>opvar2</source>
+			</trans-unit>
+			<trans-unit id="opvar3.description">
+				<source>opvar3</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

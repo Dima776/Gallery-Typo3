@@ -12,7 +12,7 @@ if (!defined('TYPO3_MODE')) {
 	),
 	// non-cacheable actions
 	array(
-		'PersonalGallery' => 'create, update, delete',
+		'PersonalGallery' => 'list, create, update, delete',
 		
 	)
 );
